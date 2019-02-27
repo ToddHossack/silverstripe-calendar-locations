@@ -31,6 +31,8 @@ class EventLocation extends DataObject
         'UsageCount'
     );
     
+    private static $default_sort = 'Title ASC';
+    
     /*
 	 * -------------------------------------------------------------------------
 	 * Admin methods
@@ -55,8 +57,8 @@ class EventLocation extends DataObject
          * Image tab 
          */
         $fields->findOrMakeTab('Root.ImageTab',_t('EventLocation.ImageTab','Image'));
-        $imageField = SelectUploadField::create('Image',_t('EventLocation.Image','Location image'));
-        $fields->addFieldToTab('Root.Image',$imageField);
+        $imageField = UploadField::create('Image',_t('EventLocation.Image','Location image'));
+        $fields->addFieldToTab('Root.ImageTab',$imageField);
         
         /*
          * Usage tab
