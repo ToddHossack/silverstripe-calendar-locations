@@ -43,7 +43,7 @@ class EventLocation extends DataObject
         
         $fields = FieldList::create();
         $fields->push(TabSet::create("Root", $mainTab = Tab::create("Main")));
-
+        
         /*
          * Main tab
          */
@@ -52,7 +52,7 @@ class EventLocation extends DataObject
             TextField::create('Title',_t('EventLocation.Title','Title')),
             HtmlEditorField::create('Description',_t('EventLocation.Description','Description'))
         ));
-
+        
         /* 
          * Image tab 
          */
@@ -82,8 +82,10 @@ class EventLocation extends DataObject
         $fields->removeByName('AddressHeader');
         $fields->removeByName('LocationName');
         $fields->removeByName('UseMailingAddress');
-        $fields->unshift(TextField::create('Title',_t('EventLocation.Title','Title')));
-        
+        $fields->unshift(TextField::create('Title',_t('EventLocation.AddNewTitle','Location Title')));
+        if($this->hasField('SubsiteID')) {
+            $fields->push(HiddenField::create('SubsiteID', 'SubsiteID', Subsite::currentSubsiteID()));
+        }
          /** @todo
         $tzField = TimeZoneField::create('TimeZone', _t('EventLocation.TimeZone'));
 		$fields->replaceField('TimeZone',$tzField);

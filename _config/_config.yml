@@ -20,5 +20,7 @@ CalendarAdmin:
     - EventLocation
     
 EventLocation:
+  contactinfo_disabled_sections: ['ContactSection','MailingAddressSection']
   extensions:
     - TkiContactInfoExtension
+#Advised to set allowed_countries and perhaps allowed_subdivisions

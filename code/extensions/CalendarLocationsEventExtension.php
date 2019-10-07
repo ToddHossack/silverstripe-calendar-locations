@@ -19,8 +19,8 @@ class CalendarLocationsEventExtension extends DataExtension {
         };
         
         $locationField = DropdownField::create('LocationID', _t('CalendarLocationsEventExtension.LocationField', 'Select location'), $source())
-            ->setHasEmptyDefault(true)
-            ->useAddNew('EventLocation',$source);
+            ->setHasEmptyDefault(true);
+            //->useAddNew('EventLocation',$source); // Doesn't select added item if list is sorted by Title (not ID)
 		$fields->addFieldToTab('Root.Location',$locationField);
   
     }

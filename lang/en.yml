@@ -10,6 +10,7 @@ en:
     AddressTab: 'Address'
     UsageTab: 'Usage'
     Title: 'Title'
+    AddNewTitle: 'Location Title'
     Description: 'Description'
     Address: 'Street address'
     City: 'Suburb / city'
